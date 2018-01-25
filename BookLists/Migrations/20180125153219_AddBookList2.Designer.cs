@@ -11,8 +11,8 @@ using System;
 namespace BookLists.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20180125132735_AddBookList1")]
-    partial class AddBookList1
+    [Migration("20180125153219_AddBookList2")]
+    partial class AddBookList2
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,14 +21,13 @@ namespace BookLists.Migrations
                 .HasAnnotation("ProductVersion", "2.0.1-rtm-125")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
-            modelBuilder.Entity("CoreBookList.Models.Book", b =>
+            modelBuilder.Entity("BookLists.Models.Book", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<string>("Name");
-
-                    b.Property<int>("catId");
+                    b.Property<string>("Name")
+                        .IsRequired();
 
                     b.HasKey("Id");
 
