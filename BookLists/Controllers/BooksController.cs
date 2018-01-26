@@ -25,6 +25,7 @@ namespace BookLists.Controllers
         {
             return View();
         }
+        //create
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Create(Book book)
@@ -71,7 +72,7 @@ namespace BookLists.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int Id,Book book)
         {
-            if(Id == book.Id)
+            if(Id != book.Id)
             {
                 return NotFound();
             }
